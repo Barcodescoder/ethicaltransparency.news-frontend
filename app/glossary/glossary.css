@@ -1,0 +1,35 @@
+.glossary-page {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.glossary-card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease;
+}
+
+.glossary-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+}
+
+.glossary-card h2 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+.glossary-card p {
+  font-size: 0.95rem;
+  color: #495057;
+  line-height: 1.5;
+}

@@ -1,0 +1,8 @@
+name = "2d-barcode-news-frontend"
+compatibility_date = "2024-05-12"
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "2d-barcode-news"
+database_id = "02ff044d-b672-46c2-b3d4-9d2771820b7a"

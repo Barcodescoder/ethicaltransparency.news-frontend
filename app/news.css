@@ -1,0 +1,160 @@
+.news-page {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-bar span {
+  font-weight: 600;
+  color: #495057;
+}
+
+.filter-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-links a {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background-color: var(--bg-secondary);
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-links a:hover {
+  background-color: #e9ecef;
+  text-decoration: none;
+}
+
+.filter-links a.active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.news-card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.region-tag {
+  background-color: #e8f7f6;
+  color: var(--primary-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.headline {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.headline a {
+  color: var(--text-dark);
+}
+
+.headline a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.summary {
+  font-size: 1.05rem;
+  color: #495057;
+  margin-bottom: 1.5rem;
+}
+
+.why-matters {
+  background-color: #f8f9fa;
+  padding: 1.2rem;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 1.5rem;
+}
+
+.why-matters strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.why-matters p {
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.card-cta p {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  color: #6c757d;
+}
