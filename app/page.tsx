@@ -25,22 +25,25 @@ export default async function NewsPage({
   let articles: Article[] = [];
   
   try {
-    const db = process.env.DB as unknown as D1Database;
+    let db = process.env.DB as unknown as D1Database;
     if (!db) {
-        // Fallback for dev mode without wrangler if needed, or proper context access
         const ctx = getRequestContext();
-        if (ctx?.env?.DB) {
-           const query = filterRegion === "All" 
-             ? "SELECT * FROM articles ORDER BY published_at DESC LIMIT 50"
-             : "SELECT * FROM articles WHERE region = ? ORDER BY published_at DESC LIMIT 50";
-             
-           const stmt = filterRegion === "All" 
-             ? ctx.env.DB.prepare(query)
-             : ctx.env.DB.prepare(query).bind(filterRegion);
-             
-           const { results } = await stmt.all<Article>();
-           articles = results || [];
-        }
+        db = ctx?.env?.DB as D1Database;
+    }
+
+    if (db) {
+       const query = filterRegion === "All" 
+         ? "SELECT * FROM articles ORDER BY published_at DESC LIMIT 50"
+         : "SELECT * FROM articles WHERE region = ? ORDER BY published_at DESC LIMIT 50";
+         
+       const stmt = filterRegion === "All" 
+         ? db.prepare(query)
+         : db.prepare(query).bind(filterRegion);
+         
+       const { results } = await stmt.all<Article>();
+       articles = results || [];
+    } else {
+       console.error("D1 Database binding 'DB' is undefined. Please check Cloudflare Pages settings.");
     }
   } catch (e) {
     console.error("Database error:", e);
