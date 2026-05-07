@@ -20,8 +20,7 @@ export default async function NewsPage({
 }: {
   searchParams: { region?: string }
 }) {
-  const params = await searchParams;
-  const filterRegion = params.region || "All";
+  const filterRegion = searchParams.region || "All";
   
   let articles: Article[] = [];
   
