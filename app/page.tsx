@@ -64,6 +64,9 @@ export default async function NewsPage({
           <Link href="/" className={filterRegion === "All" ? "active" : ""}>All</Link>
           <Link href="/?region=NZ" className={filterRegion === "NZ" ? "active" : ""}>New Zealand</Link>
           <Link href="/?region=AU" className={filterRegion === "AU" ? "active" : ""}>Australia</Link>
+          <Link href="/?region=UK" className={filterRegion === "UK" ? "active" : ""}>UK</Link>
+          <Link href="/?region=EU" className={filterRegion === "EU" ? "active" : ""}>Europe</Link>
+          <Link href="/?region=USA" className={filterRegion === "USA" ? "active" : ""}>USA</Link>
           <Link href="/?region=Global" className={filterRegion === "Global" ? "active" : ""}>Global</Link>
         </div>
       </div>
