@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <h3>2D Barcode Insights</h3>
-            <p>Your AI-powered newsroom for the GS1 Sunrise 2027 transition.</p>
+            <p>Your newsroom for the GS1 Sunrise 2027 transition.</p>
           </div>
           <div className="footer-regional">
             <h4>Regional Resources</h4>
