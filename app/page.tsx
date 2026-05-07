@@ -6,8 +6,10 @@ export const runtime = 'edge';
 
 type Article = {
   id: string;
+  slug: string;
   headline: string;
   summary: string;
+  article_body: string;
   why_it_matters: string;
   source_url: string;
   published_at: string;
@@ -79,7 +81,7 @@ export default async function NewsPage({
                 <time>{new Date(article.published_at).toLocaleDateString()}</time>
               </div>
               <h2 className="headline">
-                <a href={article.source_url} target="_blank" rel="noopener noreferrer">{article.headline}</a>
+                <Link href={`/news/${article.slug}`}>{article.headline}</Link>
               </h2>
               <p className="summary">{article.summary}</p>
               
@@ -88,8 +90,10 @@ export default async function NewsPage({
                 <p>{article.why_it_matters}</p>
               </div>
               
-              <div className="card-cta">
-                <p>Ready to transition?</p>
+              <div className="card-cta" style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem' }}>
+                <Link href={`/news/${article.slug}`} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', textDecoration: 'underline' }}>
+                  Read full article
+                </Link>
                 <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Future-proof your products now at ibn.link
                 </a>
