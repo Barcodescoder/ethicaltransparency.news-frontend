@@ -19,7 +19,7 @@
 }
 
 .page-header p {
-  color: #6c757d;
+  color: var(--border-color);
   font-size: 1.1rem;
 }
 
@@ -34,7 +34,7 @@
 
 .filter-bar span {
   font-weight: 600;
-  color: #495057;
+  color: var(--text-dark);
 }
 
 .filter-links {
@@ -46,15 +46,17 @@
   padding: 0.4rem 1rem;
   border-radius: 20px;
   background-color: var(--bg-secondary);
-  color: #495057;
+  color: var(--text-dark);
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s ease;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .filter-links a:hover {
-  background-color: #e9ecef;
+  background-color: var(--border-color);
   text-decoration: none;
+  color: #fff;
 }
 
 .filter-links a.active {
@@ -88,12 +90,12 @@
   gap: 1rem;
   margin-bottom: 1rem;
   font-size: 0.85rem;
-  color: #6c757d;
+  color: var(--border-color);
 }
 
 .region-tag {
-  background-color: #e8f7f6;
-  color: var(--primary-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-dark);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-weight: 600;
@@ -115,12 +117,12 @@
 
 .summary {
   font-size: 1.05rem;
-  color: #495057;
+  color: var(--text-dark);
   margin-bottom: 1.5rem;
 }
 
 .why-matters {
-  background-color: #f8f9fa;
+  background-color: var(--bg-secondary);
   padding: 1.2rem;
   border-left: 4px solid var(--primary-color);
   border-radius: 0 4px 4px 0;
@@ -134,7 +136,7 @@
 }
 
 .why-matters p {
-  color: #495057;
+  color: var(--text-dark);
   font-size: 0.95rem;
 }
 
@@ -156,5 +158,5 @@
   padding: 4rem 2rem;
   background-color: var(--bg-secondary);
   border-radius: 8px;
-  color: #6c757d;
+  color: var(--text-dark);
 }

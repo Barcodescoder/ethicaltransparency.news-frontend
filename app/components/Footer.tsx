@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./Footer.css";
 
 export default function Footer() {
@@ -6,7 +7,15 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3>Ethical Transparency News</h3>
+            <div style={{ marginBottom: '1rem' }}>
+              <Image 
+                src="/logo.png" 
+                alt="Ethical Transparency Alliance" 
+                width={250} 
+                height={40} 
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
             <p>Empowering consumers to demand change.</p>
           </div>
           <div className="footer-regional">

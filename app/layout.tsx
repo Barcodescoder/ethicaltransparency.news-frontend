@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Average, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const average = Average({ weight: "400", subsets: ["latin"], variable: '--font-average' });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: '--font-dm-sans' });
 
 export const metadata: Metadata = {
   title: "Ethical Transparency News | Supply Chain Integrity",
@@ -17,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${average.variable} ${dmSans.variable}`}>
+      <body className={dmSans.className}>
         <div className="app-container">
           <Header />
           <main className="main-content">

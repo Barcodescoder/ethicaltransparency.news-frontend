@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import "./Header.css";
 
 export default function Header() {
@@ -6,7 +7,14 @@ export default function Header() {
     <header className="site-header">
       <div className="header-container">
         <Link href="/" className="logo">
-          <span className="logo-icon">⚖️</span> Ethical Transparency News
+          <Image 
+            src="/logo.png" 
+            alt="Ethical Transparency Alliance" 
+            width={300} 
+            height={50} 
+            style={{ objectFit: 'contain' }}
+            priority
+          />
         </Link>
         <nav className="main-nav">
           <Link href="/">News</Link>

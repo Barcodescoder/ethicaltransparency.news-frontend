@@ -1,8 +1,8 @@
 .site-header {
-  background-color: #111111;
-  color: #ffffff;
-  padding: 1rem 0;
-  border-bottom: 2px solid #24BCAE;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  padding: 1.5rem 0;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .header-container {
@@ -18,15 +18,10 @@
   font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.logo-icon {
-  color: #24BCAE;
-  font-size: 1.8rem;
 }
 
 .main-nav {
@@ -36,22 +31,23 @@
 }
 
 .main-nav a {
-  color: #ffffff;
+  color: var(--text-dark);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: color 0.2s ease;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .main-nav a:hover {
-  color: #24BCAE;
+  color: var(--primary-color);
 }
 
 .cta-button {
-  background-color: #24BCAE;
-  color: #ffffff !important;
+  background-color: var(--primary-color);
+  color: var(--text-light) !important;
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
   font-weight: 600;
@@ -59,6 +55,6 @@
 }
 
 .cta-button:hover {
-  background-color: #1da397;
+  background-color: var(--text-dark);
   transform: translateY(-1px);
 }
