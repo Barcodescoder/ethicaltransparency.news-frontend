@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "2D Barcode Insights | Sunrise 2027 News",
-  description: "AI-automated industry newsroom for SME business owners in NZ and AU preparing for the GS1 Digital Link and Sunrise 2027 barcode transition.",
+  title: "Ethical Transparency News | Supply Chain Integrity",
+  description: "An automated newsroom dedicated to the mission of the Ethical Transparency Alliance, ensuring ethics becomes an embedded expectation in the new era of retail transparency.",
 };
 
 export default function RootLayout({

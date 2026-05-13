@@ -6,14 +6,13 @@ export default function Header() {
     <header className="site-header">
       <div className="header-container">
         <Link href="/" className="logo">
-          <span className="logo-icon">❖</span> 2D Barcode Insights
+          <span className="logo-icon">⚖️</span> Ethical Transparency News
         </Link>
         <nav className="main-nav">
           <Link href="/">News</Link>
-          <Link href="/glossary">Glossary</Link>
-          <Link href="/about">About</Link>
-          <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="cta-button">
-            Manage My 2D Codes
+          <a href="https://ethicaltransparency.org/about/" target="_blank" rel="noopener noreferrer">About ETA</a>
+          <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer" className="cta-button">
+            Join the Alliance
           </a>
         </nav>
       </div>

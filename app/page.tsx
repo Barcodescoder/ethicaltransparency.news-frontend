@@ -14,15 +14,15 @@ type Article = {
   source_url: string;
   published_at: string;
   tags: string;
-  region: string;
+  theme: string;
 };
 
 export default async function NewsPage({
   searchParams
 }: {
-  searchParams: { region?: string }
+  searchParams: { theme?: string }
 }) {
-  const filterRegion = searchParams.region || "All";
+  const filterTheme = searchParams.theme || "All";
   
   let articles: Article[] = [];
   
@@ -34,13 +34,13 @@ export default async function NewsPage({
     }
 
     if (db) {
-       const query = filterRegion === "All" 
+       const query = filterTheme === "All" 
          ? "SELECT * FROM articles ORDER BY published_at DESC LIMIT 50"
-         : "SELECT * FROM articles WHERE region = ? ORDER BY published_at DESC LIMIT 50";
+         : "SELECT * FROM articles WHERE theme = ? ORDER BY published_at DESC LIMIT 50";
          
-       const stmt = filterRegion === "All" 
+       const stmt = filterTheme === "All" 
          ? db.prepare(query)
-         : db.prepare(query).bind(filterRegion);
+         : db.prepare(query).bind(filterTheme);
          
        const { results } = await stmt.all<Article>();
        articles = results || [];
@@ -53,54 +53,50 @@ export default async function NewsPage({
 
   return (
     <div className="news-page">
-      <header className="page-header">
-        <h1>Industry Newsroom</h1>
-        <p>The latest updates on 2D barcodes, GS1 Digital Link, and Sunrise 2027.</p>
+      <header className="page-header" style={{textAlign: "center", padding: "3rem 1rem", backgroundColor: "#0f172a", color: "white", borderRadius: "8px", marginBottom: "2rem"}}>
+        <h1 style={{fontSize: "2.5rem", marginBottom: "1rem"}}>Ethical Transparency News</h1>
+        <p style={{fontSize: "1.2rem", maxWidth: "600px", margin: "0 auto", opacity: 0.9}}>Bridging the gap between conscious consumers and the trusted supply chain information they need.</p>
       </header>
 
       <div className="filter-bar">
-        <span>Filter by region: </span>
-        <div className="filter-links">
-          <Link href="/" className={filterRegion === "All" ? "active" : ""}>All</Link>
-          <Link href="/?region=NZ" className={filterRegion === "NZ" ? "active" : ""}>New Zealand</Link>
-          <Link href="/?region=AU" className={filterRegion === "AU" ? "active" : ""}>Australia</Link>
-          <Link href="/?region=UK" className={filterRegion === "UK" ? "active" : ""}>UK</Link>
-          <Link href="/?region=EU" className={filterRegion === "EU" ? "active" : ""}>Europe</Link>
-          <Link href="/?region=USA" className={filterRegion === "USA" ? "active" : ""}>USA</Link>
-          <Link href="/?region=Canada" className={filterRegion === "Canada" ? "active" : ""}>Canada</Link>
-          <Link href="/?region=Asia" className={filterRegion === "Asia" ? "active" : ""}>Asia</Link>
-          <Link href="/?region=Global" className={filterRegion === "Global" ? "active" : ""}>Global</Link>
+        <span style={{fontWeight: "bold", marginRight: "1rem"}}>Filter by Theme: </span>
+        <div className="filter-links" style={{display: "flex", gap: "1rem", flexWrap: "wrap", margin: "1rem 0"}}>
+          <Link href="/" className={filterTheme === "All" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "All" ? "#3b82f6" : "#f1f5f9", color: filterTheme === "All" ? "white" : "#333", borderRadius: "20px", textDecoration: "none"}}>All</Link>
+          <Link href="/?theme=Supply Chain Transparency" className={filterTheme === "Supply Chain Transparency" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Supply Chain Transparency" ? "#3b82f6" : "#f1f5f9", color: filterTheme === "Supply Chain Transparency" ? "white" : "#333", borderRadius: "20px", textDecoration: "none"}}>Supply Chain Transparency</Link>
+          <Link href="/?theme=Modern Slavery" className={filterTheme === "Modern Slavery" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Modern Slavery" ? "#3b82f6" : "#f1f5f9", color: filterTheme === "Modern Slavery" ? "white" : "#333", borderRadius: "20px", textDecoration: "none"}}>Modern Slavery</Link>
+          <Link href="/?theme=GS1 2D Barcodes" className={filterTheme === "GS1 2D Barcodes" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "GS1 2D Barcodes" ? "#3b82f6" : "#f1f5f9", color: filterTheme === "GS1 2D Barcodes" ? "white" : "#333", borderRadius: "20px", textDecoration: "none"}}>GS1 2D Barcodes</Link>
+          <Link href="/?theme=Fair Trade & Wages" className={filterTheme === "Fair Trade & Wages" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Fair Trade & Wages" ? "#3b82f6" : "#f1f5f9", color: filterTheme === "Fair Trade & Wages" ? "white" : "#333", borderRadius: "20px", textDecoration: "none"}}>Fair Trade & Wages</Link>
         </div>
       </div>
 
-      <div className="articles-list">
+      <div className="articles-list" style={{display: "flex", flexDirection: "column", gap: "2rem"}}>
         {articles.length === 0 ? (
-          <div className="empty-state">
-            <p>No news articles found for this region right now. Check back soon!</p>
+          <div className="empty-state" style={{padding: "3rem", textAlign: "center", backgroundColor: "#f8fafc", borderRadius: "8px", border: "1px dashed #cbd5e1"}}>
+            <p>No news articles found for this theme right now. The Ethical Transparency Agent is searching the web!</p>
           </div>
         ) : (
           articles.map((article) => (
-            <article key={article.id} className="news-card">
-              <div className="card-meta">
-                <span className="region-tag">{article.region}</span>
+            <article key={article.id} className="news-card" style={{padding: "2rem", backgroundColor: "white", borderRadius: "12px", boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"}}>
+              <div className="card-meta" style={{display: "flex", justifyContent: "space-between", marginBottom: "1rem", fontSize: "0.9rem", color: "#64748b"}}>
+                <span className="theme-tag" style={{fontWeight: "bold", color: "#3b82f6", textTransform: "uppercase", letterSpacing: "0.05em"}}>{article.theme}</span>
                 <time>{new Date(article.published_at).toLocaleDateString()}</time>
               </div>
-              <h2 className="headline">
-                <Link href={`/news/${article.slug}`}>{article.headline}</Link>
+              <h2 className="headline" style={{fontSize: "1.75rem", marginBottom: "1rem", color: "#0f172a", lineHeight: 1.3}}>
+                <Link href={`/news/${article.slug}`} style={{textDecoration: "none", color: "inherit"}}>{article.headline}</Link>
               </h2>
-              <p className="summary">{article.summary}</p>
+              <p className="summary" style={{fontSize: "1.1rem", color: "#475569", marginBottom: "1.5rem", lineHeight: 1.6}}>{article.summary}</p>
               
-              <div className="why-matters">
-                <strong>Why this matters for your business:</strong>
-                <p>{article.why_it_matters}</p>
+              <div className="why-matters" style={{padding: "1.5rem", backgroundColor: "#f0fdfa", borderLeft: "4px solid #0d9488", borderRadius: "0 8px 8px 0", marginBottom: "1.5rem"}}>
+                <strong style={{display: "block", marginBottom: "0.5rem", color: "#0f766e"}}>Why this matters for the Ethical Transparency Alliance:</strong>
+                <p style={{color: "#0f172a", lineHeight: 1.5}}>{article.why_it_matters}</p>
               </div>
               
-              <div className="card-cta" style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem' }}>
-                <Link href={`/news/${article.slug}`} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', textDecoration: 'underline' }}>
-                  Read full article
+              <div className="card-cta" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <Link href={`/news/${article.slug}`} className="btn btn-secondary" style={{ padding: '0.75rem 1.5rem', backgroundColor: "#f1f5f9", color: "#334155", borderRadius: "6px", textDecoration: 'none', fontWeight: 500 }}>
+                  Read full analysis
                 </Link>
-                <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  Future-proof your products now at ibn.link
+                <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', backgroundColor: "#0f172a", color: "white", borderRadius: "6px", textDecoration: 'none', fontWeight: 500 }}>
+                  Join the Alliance
                 </a>
               </div>
             </article>

@@ -1,10 +1,9 @@
-name = "2d-barcode-news-frontend"
+name = "ethicaltransparency-news-frontend"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
-
 [[d1_databases]]
 binding = "DB"
-database_name = "2d-barcode-news"
-database_id = "02ff044d-b672-46c2-b3d4-9d2771820b7a"
+database_name = "ethicaltransparency-news-db"
+database_id = "e7cfc685-fd56-4195-8012-670f82175b75"

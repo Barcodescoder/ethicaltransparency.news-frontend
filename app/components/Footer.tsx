@@ -6,24 +6,24 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3>2D Barcode Insights</h3>
-            <p>Your newsroom for the GS1 Sunrise 2027 transition.</p>
+            <h3>Ethical Transparency News</h3>
+            <p>Empowering consumers to demand change.</p>
           </div>
           <div className="footer-regional">
-            <h4>Regional Resources</h4>
-            <p>Need base GTINs or EANs for your products?</p>
+            <h4>The Ethical Transparency Alliance</h4>
+            <p>Advocating for a dedicated gs1:ethics link type.</p>
             <div className="regional-links">
-              <a href="https://barcodes.co.nz" target="_blank" rel="noopener noreferrer">
-                🇳🇿 New Zealand (barcodes.co.nz)
+              <a href="https://ethicaltransparency.org/about/" target="_blank" rel="noopener noreferrer">
+                About the Alliance
               </a>
-              <a href="https://barcodesaustralia.com" target="_blank" rel="noopener noreferrer">
-                🇦🇺 Australia (barcodesaustralia.com)
+              <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer">
+                Join the Mission
               </a>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} 2D Barcode Insights. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ethical Transparency Alliance. All rights reserved.</p>
         </div>
       </div>
     </footer>

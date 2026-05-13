@@ -15,7 +15,7 @@ type Article = {
   source_url: string;
   published_at: string;
   tags: string;
-  region: string;
+  theme: string;
 };
 
 async function getArticle(slug: string): Promise<Article | null> {
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!article) return { title: 'Not Found' };
   
   return {
-    title: `${article.headline} | 2D Barcode Insights`,
+    title: `${article.headline} | Ethical Transparency News`,
     description: article.summary,
   };
 }
@@ -56,43 +56,43 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
   return (
     <div className="news-page" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
-      <Link href="/" style={{ color: '#0066cc', textDecoration: 'none', marginBottom: '2rem', display: 'inline-block' }}>
+      <Link href="/" style={{ color: '#0f766e', textDecoration: 'none', marginBottom: '2rem', display: 'inline-block', fontWeight: 500 }}>
         &larr; Back to Newsroom
       </Link>
       
-      <article className="news-card" style={{ marginTop: '1rem', padding: '2rem' }}>
-        <div className="card-meta" style={{ marginBottom: '1rem' }}>
-          <span className="region-tag">{article.region}</span>
+      <article className="news-card" style={{ marginTop: '1rem', padding: '2.5rem', backgroundColor: "white", borderRadius: "12px", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}>
+        <div className="card-meta" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', color: '#64748b' }}>
+          <span className="theme-tag" style={{fontWeight: "bold", color: "#3b82f6", textTransform: "uppercase", letterSpacing: "0.05em"}}>{article.theme}</span>
           <time>{new Date(article.published_at).toLocaleDateString()}</time>
         </div>
         
-        <h1 className="headline" style={{ fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: '1.2' }}>
+        <h1 className="headline" style={{ fontSize: '2.5rem', marginBottom: '1.5rem', lineHeight: '1.3', color: '#0f172a' }}>
           {article.headline}
         </h1>
         
-        <div className="article-body" style={{ fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '2rem', whiteSpace: 'pre-wrap' }}>
+        <div className="article-body" style={{ fontSize: '1.15rem', lineHeight: '1.7', marginBottom: '2.5rem', whiteSpace: 'pre-wrap', color: '#334155' }}>
           {article.article_body}
         </div>
         
-        <div className="why-matters" style={{ backgroundColor: '#f0f7ff', padding: '1.5rem', borderRadius: '8px', marginBottom: '2rem' }}>
-          <strong style={{ display: 'block', marginBottom: '0.5rem', fontSize: '1.2rem', color: '#004488' }}>
-            Why this matters for your business:
+        <div className="why-matters" style={{ backgroundColor: '#f0fdfa', padding: '1.5rem', borderLeft: "4px solid #0d9488", borderRadius: "0 8px 8px 0", marginBottom: '2.5rem' }}>
+          <strong style={{ display: 'block', marginBottom: '0.75rem', fontSize: '1.25rem', color: '#0f766e' }}>
+            Why this matters for the Ethical Transparency Alliance:
           </strong>
-          <p style={{ margin: 0 }}>{article.why_it_matters}</p>
+          <p style={{ margin: 0, lineHeight: 1.6, color: '#0f172a' }}>{article.why_it_matters}</p>
         </div>
         
-        <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '2rem 0' }} />
+        <hr style={{ border: 'none', borderTop: '1px solid #e2e8f0', margin: '2rem 0' }} />
         
         <div className="article-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
-            <p style={{ margin: '0 0 0.5rem 0', color: '#666' }}>Read the original coverage:</p>
-            <a href={article.source_url} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', wordBreak: 'break-all' }}>
-              {article.source_url}
+            <p style={{ margin: '0 0 0.5rem 0', color: '#64748b', fontSize: '0.9rem' }}>Read the original coverage:</p>
+            <a href={article.source_url} target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', wordBreak: 'break-all', fontWeight: 500 }}>
+              {new URL(article.source_url).hostname} &rarr;
             </a>
           </div>
           
-          <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', whiteSpace: 'nowrap' }}>
-            Future-proof with ibn.link
+          <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', backgroundColor: "#0f172a", color: "white", borderRadius: "6px", textDecoration: 'none', fontWeight: 500, whiteSpace: 'nowrap' }}>
+            Join the Alliance
           </a>
         </div>
       </article>
