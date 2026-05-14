@@ -8,13 +8,9 @@
 }
 
 .page-header {
+  margin-top: 2rem;
   margin-bottom: 4rem;
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, rgba(227, 217, 202, 0.4) 0%, rgba(185, 188, 179, 0.3) 100%);
-  border-radius: 16px;
-  border: 1px solid rgba(113, 117, 104, 0.15);
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
 }
 
 .main-title {
