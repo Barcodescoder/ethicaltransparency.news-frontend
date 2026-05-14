@@ -53,9 +53,9 @@ export default async function NewsPage({
 
   return (
     <div className="news-page">
-      <header className="page-header" style={{textAlign: "center", padding: "3rem 1rem", backgroundColor: "var(--text-dark)", color: "var(--bg-color)", borderRadius: "8px", marginBottom: "2rem"}}>
-        <h1 style={{fontSize: "2.5rem", marginBottom: "1rem", color: "var(--bg-color)"}}>Ethical Transparency News</h1>
-        <p style={{fontSize: "1.2rem", maxWidth: "600px", margin: "0 auto", opacity: 0.9, color: "var(--bg-secondary)"}}>Bridging the gap between conscious consumers and the trusted supply chain information they need.</p>
+      <header className="page-header">
+        <h1 className="main-title">Ethical Transparency News</h1>
+        <p className="main-subtitle">Bridging the gap between conscious consumers and the trusted supply chain information they need.</p>
       </header>
 
       <div className="filter-bar">
