@@ -61,11 +61,11 @@ export default async function NewsPage({
       <div className="filter-bar">
         <span style={{fontWeight: "bold", marginRight: "1rem"}}>Filter by Theme: </span>
         <div className="filter-links" style={{display: "flex", gap: "1rem", flexWrap: "wrap", margin: "1rem 0"}}>
-          <Link href="/" className={filterTheme === "All" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "All" ? "var(--primary-color)" : "var(--bg-color)", color: filterTheme === "All" ? "var(--text-light)" : "var(--text-dark)", borderRadius: "20px", textDecoration: "none"}}>All</Link>
-          <Link href="/?theme=Supply Chain Transparency" className={filterTheme === "Supply Chain Transparency" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Supply Chain Transparency" ? "var(--primary-color)" : "var(--bg-color)", color: filterTheme === "Supply Chain Transparency" ? "var(--text-light)" : "var(--text-dark)", borderRadius: "20px", textDecoration: "none"}}>Supply Chain Transparency</Link>
-          <Link href="/?theme=Modern Slavery" className={filterTheme === "Modern Slavery" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Modern Slavery" ? "var(--primary-color)" : "var(--bg-color)", color: filterTheme === "Modern Slavery" ? "var(--text-light)" : "var(--text-dark)", borderRadius: "20px", textDecoration: "none"}}>Modern Slavery</Link>
-          <Link href="/?theme=GS1 2D Barcodes" className={filterTheme === "GS1 2D Barcodes" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "GS1 2D Barcodes" ? "var(--primary-color)" : "var(--bg-color)", color: filterTheme === "GS1 2D Barcodes" ? "var(--text-light)" : "var(--text-dark)", borderRadius: "20px", textDecoration: "none"}}>GS1 2D Barcodes</Link>
-          <Link href="/?theme=Fair Trade & Wages" className={filterTheme === "Fair Trade & Wages" ? "active" : ""} style={{padding: "0.5rem 1rem", backgroundColor: filterTheme === "Fair Trade & Wages" ? "var(--primary-color)" : "var(--bg-color)", color: filterTheme === "Fair Trade & Wages" ? "var(--text-light)" : "var(--text-dark)", borderRadius: "20px", textDecoration: "none"}}>Fair Trade & Wages</Link>
+          <Link href="/" className={filterTheme === "All" ? "active" : ""}>All</Link>
+          <Link href="/?theme=Supply Chain Transparency" className={filterTheme === "Supply Chain Transparency" ? "active" : ""}>Supply Chain Transparency</Link>
+          <Link href="/?theme=Modern Slavery" className={filterTheme === "Modern Slavery" ? "active" : ""}>Modern Slavery</Link>
+          <Link href="/?theme=GS1 2D Barcodes" className={filterTheme === "GS1 2D Barcodes" ? "active" : ""}>GS1 2D Barcodes</Link>
+          <Link href="/?theme=Fair Trade & Wages" className={filterTheme === "Fair Trade & Wages" ? "active" : ""}>Fair Trade & Wages</Link>
         </div>
       </div>
 
