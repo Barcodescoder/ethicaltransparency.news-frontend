@@ -19,6 +19,7 @@ export default function Header() {
         <nav className="main-nav">
           <Link href="/">News</Link>
           <a href="https://ethicaltransparency.org/about/" target="_blank" rel="noopener noreferrer">About ETA</a>
+          <Link href="/submit" className="submit-link">Submit News</Link>
           <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer" className="cta-button">
             Join the Alliance
           </a>

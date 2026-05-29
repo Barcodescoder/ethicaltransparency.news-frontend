@@ -7,3 +7,4 @@ pages_build_output_dir = ".vercel/output/static"
 binding = "DB"
 database_name = "ethicaltransparency-news-db"
 database_id = "e7cfc685-fd56-4195-8012-670f82175b75"
+
