@@ -351,7 +351,7 @@ export default function AdminPage() {
       )}
 
       <div style={{ marginTop: '3rem', padding: '1.25rem', background: 'var(--bg-secondary)', borderRadius: '10px', fontSize: '0.85rem', color: 'var(--border-color)' }}>
-        <strong>To process unanalysed submissions with AI:</strong> trigger <code>POST /process-submissions</code> on the <code>ethicaltransparency-news-agent</code> Cloudflare Worker. You can do this from the Cloudflare Dashboard → Workers → Quick Edit, or via <code>curl -X POST https://ethicaltransparency-news-agent.&lt;your-subdomain&gt;.workers.dev/process-submissions</code>
+        <strong>AI processing:</strong> Submissions are automatically analysed when received. To manually re-trigger analysis (e.g. if processing failed), send a POST request to: <code>https://ethicaltransparency-news-agent.barcodes.workers.dev/process-submissions</code>
       </div>
     </div>
   );

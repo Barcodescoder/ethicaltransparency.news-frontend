@@ -106,5 +106,13 @@ export async function POST(request: Request) {
     now
   ).run();
 
+  // Automatically trigger the news-agent Worker to analyse this submission.
+  // Fire-and-forget — we don't await this so it never blocks the user's response.
+  const agentUrl = 'https://ethicaltransparency-news-agent.barcodes.workers.dev/process-submissions';
+  const ctx = getRequestContext();
+  ctx.waitUntil(
+    fetch(agentUrl, { method: 'POST' }).catch(e => console.error('Failed to trigger agent:', e))
+  );
+
   return NextResponse.json({ success: true });
 }
