@@ -75,5 +75,14 @@ export async function POST(request: Request) {
     `UPDATE submissions SET status = 'approved', published_article_id = ? WHERE id = ?`
   ).bind(articleId, id).run();
 
+  try {
+    const url = `https://ethicaltransparency.news/news/${slug}`;
+    const key = "e008670e57be4cd7ae5b7764f1e30aaf";
+    const indexNowUrl = `https://api.indexnow.org/indexnow?url=${encodeURIComponent(url)}&key=${key}`;
+    await fetch(indexNowUrl);
+  } catch (e) {
+    console.error(`Failed to ping IndexNow for ${slug}:`, e);
+  }
+
   return NextResponse.json({ success: true, article_id: articleId });
 }
