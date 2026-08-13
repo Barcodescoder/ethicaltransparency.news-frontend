@@ -1,45 +1,73 @@
+import { Metadata } from "next";
+import Link from "next/link";
 import "./about.css";
+
+export const runtime = 'edge';
+
+export const metadata: Metadata = {
+  title: "About Ethical Transparency News | Ethical Transparency Alliance",
+  description: "Learn about Ethical Transparency News, an AI-automated newsroom bridging conscious consumers and verified supply chain transparency data.",
+  alternates: {
+    canonical: "https://ethicaltransparency.news/about",
+  },
+  openGraph: {
+    title: "About Ethical Transparency News",
+    description: "Bridging the gap between conscious consumers and trusted supply chain transparency data.",
+    url: "https://ethicaltransparency.news/about",
+    siteName: "Ethical Transparency News",
+    type: "website",
+  },
+};
 
 export default function AboutPage() {
   return (
     <div className="about-page">
       <header className="page-header">
-        <h1>About 2D Barcode Insights</h1>
+        <h1>About Ethical Transparency News</h1>
+        <p className="main-subtitle" style={{ color: "var(--text-light)", opacity: 0.9 }}>
+          Bridging conscious consumers and verified supply chain data in the era of retail transparency.
+        </p>
       </header>
 
       <div className="about-content">
         <section className="about-section">
           <h2>The Sunrise 2027 Transition</h2>
           <p>
-            The retail industry is undergoing a massive transformation. By 2027, the traditional linear barcodes (UPC/EAN) that have beeped at checkout counters for decades will be replaced by 2D barcodes capable of storing vast amounts of data, powered by the GS1 Digital Link standard.
+            The global retail industry is undergoing a massive transformation. By 2027, traditional linear barcodes (UPC/EAN) are being upgraded to 2D barcodes (such as QR codes powered by the GS1 Digital Link standard).
           </p>
           <p>
-            For small and medium-sized enterprises (SMEs) in New Zealand and Australia, this transition presents both a challenge and an incredible opportunity.
+            This shift enables products to carry rich, machine-readable data right on their packaging — opening up direct communication channels between brands, retailers, and conscious consumers.
           </p>
         </section>
 
         <section className="about-section highlight-box">
           <h2>Our Mission</h2>
           <p>
-            <strong>2D Barcode Insights</strong> is an AI-automated industry newsroom designed specifically for retail and food & beverage business owners. We cut through the technical jargon to bring you the most relevant, actionable news about the Sunrise 2027 transition.
+            <strong>Ethical Transparency News</strong> is an automated, AI-driven newsroom created for ethical brands, supply chain professionals, and conscious consumers. We monitor the web 24/7 to deliver real-time news and analysis across four core pillars:
           </p>
-          <p>
-            Our intelligent agent scours the web daily, curating and summarizing the most important updates so you can understand exactly what this means for your packaging, your supply chain, and your customers.
-          </p>
+          <ul style={{ paddingLeft: "1.25rem", margin: "1rem 0", lineHeight: "1.7" }}>
+            <li><strong>Supply Chain Transparency:</strong> Verified sourcing, traceability systems, and digital product passports.</li>
+            <li><strong>Modern Slavery Prevention:</strong> Due diligence legislation, anti-forced-labor regulations, and labor rights reporting.</li>
+            <li><strong>GS1 2D Barcodes:</strong> Sunrise 2027 implementation, GS1 Digital Link standards, and barcode technology updates.</li>
+            <li><strong>Fair Trade & Wages:</strong> Living wage initiatives, fair trade certifications, and fair value distribution.</li>
+          </ul>
         </section>
 
         <section className="about-section">
-          <h2>Powered by IBN Link</h2>
+          <h2>The Ethical Transparency Alliance</h2>
           <p>
-            This resource is brought to you by the team behind <strong>IBN Link</strong>, a comprehensive platform that makes it easy for businesses to create, manage, and track 2D barcodes for their products.
+            This newsroom is published in support of the <strong>Ethical Transparency Alliance (ETA)</strong>. We advocate for standardizing machine-readable ethical data — including the proposed <code>gs1:ethics</code> GS1 Digital Link standard — so consumers can make instant, informed choices at the point of purchase.
           </p>
           <p>
-            We believe that future-proofing your business shouldn't require an engineering degree. While we keep you informed here, our tools at IBN Link handle the technical heavy lifting of generating compliant GS1 Digital Links.
+            Learn more about our standardisation efforts on our <Link href="/gs1-ethics" style={{ color: "var(--primary-color)", fontWeight: "bold" }}>GS1 Ethics Standard Page</Link> or join the alliance directly.
           </p>
           
-          <div className="cta-wrapper">
-            <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
-              Manage My 2D Codes at IBN Link
+          <div className="cta-wrapper" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
+            <a href="https://ethicaltransparency.org/" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-large">
+              Join the Alliance at EthicalTransparency.org →
+            </a>
+            <a href="https://ibn.link" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-large">
+              Manage 2D Barcodes at IBN Link
             </a>
           </div>
         </section>

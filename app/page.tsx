@@ -1,8 +1,24 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
+import { Metadata } from "next";
 import Link from "next/link";
 import "./news.css";
 
 export const runtime = 'edge';
+
+export const metadata: Metadata = {
+  title: "Ethical Transparency News | Automated Supply Chain & Ethics Intelligence",
+  description: "Bridging conscious consumers and trusted supply chain data. Read news on GS1 2D barcodes, modern slavery, supply chain transparency, and fair trade wages.",
+  alternates: {
+    canonical: "https://ethicaltransparency.news",
+  },
+  openGraph: {
+    title: "Ethical Transparency News",
+    description: "Bridging conscious consumers and trusted supply chain transparency data.",
+    url: "https://ethicaltransparency.news",
+    siteName: "Ethical Transparency News",
+    type: "website",
+  },
+};
 
 type Article = {
   id: string;
@@ -62,10 +78,10 @@ export default async function NewsPage({
         <span style={{fontWeight: "bold", marginRight: "1rem"}}>Filter by Theme: </span>
         <div className="filter-links" style={{display: "flex", gap: "1rem", flexWrap: "wrap", margin: "1rem 0"}}>
           <Link href="/" className={filterTheme === "All" ? "active" : ""}>All</Link>
-          <Link href="/?theme=Supply Chain Transparency" className={filterTheme === "Supply Chain Transparency" ? "active" : ""}>Supply Chain Transparency</Link>
-          <Link href="/?theme=Modern Slavery" className={filterTheme === "Modern Slavery" ? "active" : ""}>Modern Slavery</Link>
-          <Link href="/?theme=GS1 2D Barcodes" className={filterTheme === "GS1 2D Barcodes" ? "active" : ""}>GS1 2D Barcodes</Link>
-          <Link href="/?theme=Fair Trade & Wages" className={filterTheme === "Fair Trade & Wages" ? "active" : ""}>Fair Trade & Wages</Link>
+          <Link href="/supply-chain-transparency" className={filterTheme === "Supply Chain Transparency" ? "active" : ""}>Supply Chain Transparency</Link>
+          <Link href="/modern-slavery" className={filterTheme === "Modern Slavery" ? "active" : ""}>Modern Slavery</Link>
+          <Link href="/gs1-2d-barcodes" className={filterTheme === "GS1 2D Barcodes" ? "active" : ""}>GS1 2D Barcodes</Link>
+          <Link href="/fair-trade-wages" className={filterTheme === "Fair Trade & Wages" ? "active" : ""}>Fair Trade & Wages</Link>
         </div>
       </div>
 

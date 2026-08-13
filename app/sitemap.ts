@@ -31,12 +31,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Sitemap database error:", e);
   }
 
+  const themeSlugs = [
+    'supply-chain-transparency',
+    'modern-slavery',
+    'gs1-2d-barcodes',
+    'fair-trade-wages',
+  ];
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 1,
+      priority: 1.0,
+    },
+    ...themeSlugs.map((slug) => ({
+      url: `${BASE_URL}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    })),
+    {
+      url: `${BASE_URL}/gs1-ethics`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/about`,
@@ -49,6 +68,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/submit`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ];
 
