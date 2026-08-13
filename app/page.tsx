@@ -1,6 +1,7 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
 import { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import "./news.css";
 
 export const runtime = 'edge';
@@ -33,11 +34,22 @@ type Article = {
   theme: string;
 };
 
+const LEGACY_THEME_MAP: Record<string, string> = {
+  "Supply Chain Transparency": "supply-chain-transparency",
+  "Modern Slavery": "modern-slavery",
+  "GS1 2D Barcodes": "gs1-2d-barcodes",
+  "Fair Trade & Wages": "fair-trade-wages",
+};
+
 export default async function NewsPage({
   searchParams
 }: {
   searchParams: { theme?: string }
 }) {
+  if (searchParams.theme && LEGACY_THEME_MAP[searchParams.theme]) {
+    redirect(`/${LEGACY_THEME_MAP[searchParams.theme]}`);
+  }
+
   const filterTheme = searchParams.theme || "All";
   
   let articles: Article[] = [];
